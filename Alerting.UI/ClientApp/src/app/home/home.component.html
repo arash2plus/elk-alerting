@@ -1,0 +1,38 @@
+<div style="width: 400px; margin: auto;text-align: rtl;">
+  <div class="submit-form" >
+    <div>
+      <div class="form-group">
+        <div style="float: right;">
+        <label for="title" style="text-align: right;"> : اپلیکیشن</label>
+      </div>
+        <input
+          type="text"
+          class="form-control"
+          id="applicationName"
+          required
+          [(ngModel)]="application.applicationName"
+          name="applicationName" style="float: right;width: 50%;margin-left: 3%;margin-right: 3%;" />
+        <button (click)="saveApplication()" style="float: right;" class="btn btn-success">ثبت</button>
+      </div>
+    </div> 
+  </div>
+</div>
+ <br>
+ <br>
+<table class='table table-striped' style="text-align: right;" aria-labelledby="tableLabel" *ngIf="applications">
+  <thead>
+    <tr>
+      <th>عملیات</th> 
+      <th>اپلیکیشن</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let application of applications">
+      <td> <button (click)="deleteApplication(application.id)" class="btn btn-danger">حذف</button>
+       
+        <button (click)="showUserDialog(application.id )" style="margin-left: 3%;" class="btn btn-success">ثبت کاربر</button>
+      </td>  
+      <td>{{ application.applicationName }}</td> 
+    </tr> 
+  </tbody>
+</table>
